@@ -90,6 +90,9 @@ importers:
       typescript-eslint:
         specifier: ^7.1.1
         version: 7.18.0(eslint@9.21.0(jiti@2.4.2))(typescript@5.7.3)
+      vee-validate:
+        specifier: 4.12.6
+        version: 4.12.6(vue@3.5.13(typescript@5.7.3))
       vite:
         specifier: ^6.1.0
         version: 6.2.0(@types/node@22.13.5)(jiti@2.4.2)
@@ -2866,6 +2869,10 @@ packages:
     resolution: {integrity: sha512-4dbzIzqvjtgiM5rw1k5rEHtBANKmdudhGyBEajN01fEyhaAIhsoKNy6y7+IN93IfpFtwY9iqi7kD+xwKhQsNJA==, tarball: https://registry.npmmirror.com/type-fest/-/type-fest-0.8.1.tgz}
     engines: {node: '>=8'}
 
+  type-fest@4.36.0:
+    resolution: {integrity: sha512-3T/PUdKTCnkUmhQU6FFJEHsLwadsRegktX3TNHk+2JJB9HlA8gp1/VXblXVDI93kSnXF2rdPx0GMbHtJIV2LPg==, tarball: https://registry.npmmirror.com/type-fest/-/type-fest-4.36.0.tgz}
+    engines: {node: '>=16'}
+
   typescript-eslint@7.18.0:
     resolution: {integrity: sha512-PonBkP603E3tt05lDkbOMyaxJjvKqQrXsnow72sVeOFINDE/qNmnnd+f9b4N+U7W6MXnnYyrhtmF2t08QWwUbA==, tarball: https://registry.npmmirror.com/typescript-eslint/-/typescript-eslint-7.18.0.tgz}
     engines: {node: ^18.18.0 || >=20.0.0}
@@ -2924,6 +2931,11 @@ packages:
 
   validate-npm-package-license@3.0.4:
     resolution: {integrity: sha512-DpKm2Ui/xN7/HQKCtpZxoRWBhZ9Z0kqtygG8XCgNQ8ZlDnxuQmWhj566j8fN4Cu3/JmbhsDo7fcAJq4s9h27Ew==, tarball: https://registry.npmmirror.com/validate-npm-package-license/-/validate-npm-package-license-3.0.4.tgz}
+
+  vee-validate@4.12.6:
+    resolution: {integrity: sha512-EKM3YHy8t1miPh30d5X6xOrfG/Ctq0nbN4eMpCK7ezvI6T98/S66vswP+ihL4QqAK/k5KqreWOxof09+JG7N/A==, tarball: https://registry.npmmirror.com/vee-validate/-/vee-validate-4.12.6.tgz}
+    peerDependencies:
+      vue: ^3.3.11
 
   verror@1.10.0:
     resolution: {integrity: sha512-ZZKSmDAEFOijERBLkmYfJ+vmk3w+7hOLYDNkRCuRuMJGEmqYNCNLyBBFwWKVMhfwaEF3WOd0Zlw86U/WC/+nYw==, tarball: https://registry.npmmirror.com/verror/-/verror-1.10.0.tgz}
@@ -6021,6 +6033,8 @@ snapshots:
 
   type-fest@0.8.1: {}
 
+  type-fest@4.36.0: {}
+
   typescript-eslint@7.18.0(eslint@9.21.0(jiti@2.4.2))(typescript@5.7.3):
     dependencies:
       '@typescript-eslint/eslint-plugin': 7.18.0(@typescript-eslint/parser@7.18.0(eslint@9.21.0(jiti@2.4.2))(typescript@5.7.3))(eslint@9.21.0(jiti@2.4.2))(typescript@5.7.3)
@@ -6072,6 +6086,12 @@ snapshots:
     dependencies:
       spdx-correct: 3.2.0
       spdx-expression-parse: 3.0.1
+
+  vee-validate@4.12.6(vue@3.5.13(typescript@5.7.3)):
+    dependencies:
+      '@vue/devtools-api': 6.6.4
+      type-fest: 4.36.0
+      vue: 3.5.13(typescript@5.7.3)
 
   verror@1.10.0:
     dependencies:

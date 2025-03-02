@@ -41,16 +41,14 @@ const envStore = useDebugStore()
 // const {debug}=storeToRefs(envStore)
 
 const editorStore = useEditorStore()
-//TODO
-// const { blocks } = storeToRefs(editorStore)
+const { blocks } = storeToRefs(editorStore)
 
 const route = useRoute()
 
 const activeLink = computed(() => route.path)
-//TODO
-// const showJson = () => {
-//   window.alert(JSON.stringify(toRaw(blocks)))
-// }
+const showJson = () => {
+  window.alert(JSON.stringify(toRaw(blocks)))
+}
 
 // 等价于 computed
 // const activeLink = ref(route.path.slice(1))
@@ -140,7 +138,7 @@ const Icon = defineComponent({
         <Share />
         发布
       </div> -->
-      <div class="common-btn">
+      <div class="common-btn" @click="showJson">
         <Share />
         发布
       </div>
