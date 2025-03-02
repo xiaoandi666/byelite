@@ -38,6 +38,7 @@ defineProps<{
 // 千万不要这样！
 // const { debug, toggle } = useEnvStore()
 const envStore = useDebugStore()
+// const {debug}=storeToRefs(envStore)
 
 const editorStore = useEditorStore()
 //TODO

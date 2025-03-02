@@ -8,15 +8,4 @@ import AppNavigator from './components/AppNavigator.vue'
   <RouterView />
 </template>
 
-<style scoped>
-/* 类名切换的方式一定比动态样式好 */
-.active {
-  background-color: pink;
-}
-
-.tabs {
-  display: flex;
-  justify-content: space-around;
-  margin: 20px 0;
-}
-</style>
+<style scoped></style>

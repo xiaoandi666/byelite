@@ -9,20 +9,21 @@ const router = createRouter({
       name: 'home',
       redirect: '/dataSource',
     },
+
     {
-      path: '/dataSource',
+      path: '/app/dataSource',
       name: 'dataSource',
       component: defineAsyncComponent(() => import('../views/DataSourceView.vue')),
     },
     {
-      path: '/layout',
+      path: '/app/layout',
       name: 'layout',
       component: defineAsyncComponent(() => import('../views/LayoutView.vue')),
     },
     {
-      path: '/actions',
+      path: '/app/actions',
       name: 'actions',
-      component: defineAsyncComponent(() => import('../views/ActionsVIew.vue')),
+      component: defineAsyncComponent(() => import('../views/ActionsView.vue')),
     },
   ],
 })
