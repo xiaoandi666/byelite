@@ -17,7 +17,7 @@ export const blocks: Block[] = [
     id: '3',
     type: 'image',
     props: {
-      src: 'https://img.yzcdn.cn/vant/cat.jpeg',
+      src: 'https://images.pexels.com/photos/2577274/pexels-photo-2577274.jpeg?auto=compress&cs=tinysrgb&w=1600',
     },
     actions: {
       onEdit: () => {},

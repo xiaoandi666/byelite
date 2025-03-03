@@ -2,6 +2,9 @@
   <div class="layout-wrapper" :class="{ debug }">
     <LeftPanel />
     <div class="layout-painter">
+      <div class="layout-painter-head">
+        <div class="paiter-head-title">Xady</div>
+      </div>
       <SmoothDndContainer
         class="block-group"
         group-name="blocks"
@@ -73,16 +76,54 @@ const applyDrag = <T extends any[]>(arr: T, dragResult: DropResult) => {
 }
 .layout-painter {
   width: 100%;
-
   overflow-y: auto;
+  margin: 10px 20px;
+  border: 2px solid #ccc; /* 灰色边框 */
+  border-radius: 15px; /* 更圆润的边框 */
+  background-color: #f9f9f9; /* 浅灰色背景 */
+  box-shadow:
+    10px 0 20px rgba(0, 0, 0, 0.15),
+    /* 右侧阴影 */ -10px 0 20px rgba(0, 0, 0, 0.15); /* 左侧阴影 */
+}
 
-  padding: 20px;
+/* 滚动条样式 */
+.layout-painter::-webkit-scrollbar {
+  width: 10px; /* 滚动条的宽度 */
+}
+
+.layout-painter::-webkit-scrollbar-track {
+  background: #f1f1f1; /* 滚动条轨道的浅灰色背景 */
+  border-radius: 10px; /* 轨道圆角 */
+}
+
+.layout-painter::-webkit-scrollbar-thumb {
+  background: #888; /* 滚动条滑块的深灰色 */
+  border-radius: 10px; /* 滑块圆角 */
+}
+
+.layout-painter::-webkit-scrollbar-thumb:hover {
+  background: #555; /* 滑块悬停时的深灰色 */
+}
+.layout-painter-head {
+  background: rgb(111, 145, 180);
+  height: 20%;
+  position: sticky;
+  top: 0; /* 指定固定位置 */
+  z-index: 100;
+}
+.paiter-head-title {
+  color: white;
+  font-weight: 700;
+  font-size: 3vw;
+  position: absolute;
+  bottom: 40px;
+  left: 10%;
 }
 .block-wrapper {
   padding: 20px;
   border-radius: 4px;
   border: 2px dashed transparent;
-  margin: 20px 0;
+  margin: 10px 0;
 }
 .block-wrapper.debug {
   border: 2px dashed #e8e8e8;

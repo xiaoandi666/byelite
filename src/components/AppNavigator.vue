@@ -90,10 +90,10 @@ const Icon = defineComponent({
     <div class="app-info-wrapper">
       <div class="app-logo">
         <img
-          src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/11.3.0/2/svg/1f469-200d-1f692.svg"
+          src="https://xiaoandi-westlake.oss-cn-beijing.aliyuncs.com/ddaac47bc6909504873b2c98f05d771.jpg"
         />
       </div>
-      <h1 class="app-name">Byelide</h1>
+      <h1 class="app-name">Xady</h1>
     </div>
     <div class="app-navigator-link-wrapper">
       <router-link

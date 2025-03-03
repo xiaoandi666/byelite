@@ -18,14 +18,23 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
-    "pinia": "^3.0.1",
-    "vue": "^3.5.13",
-    "vue-router": "^4.5.0",
     "@icon-park/vue-next": "1.4.2",
-    "smooth-dnd": "0.12.1"
+    "@tiptap/core": "^2.11.5",
+    "@tiptap/pm": "^2.11.5",
+    "@tiptap/starter-kit": "^2.11.5",
+    "@tiptap/vue-3": "^2.11.5",
+    "copy-text-to-clipboard": "^3.2.0",
+    "echarts": "^5.6.0",
+    "nanoid": "^5.1.2",
+    "pinia": "^3.0.1",
+    "smooth-dnd": "0.12.1",
+    "vue": "^3.5.13",
+    "vue-json-pretty": "^2.4.0",
+    "vue-router": "^4.5.0"
   },
   "devDependencies": {
     "@tsconfig/node22": "^22.0.0",
+    "@types/echarts": "^5.0.0",
     "@types/jsdom": "^21.1.7",
     "@types/node": "^22.13.4",
     "@vitejs/plugin-vue": "^5.2.1",
@@ -44,13 +53,13 @@
     "npm-run-all2": "^7.0.2",
     "prettier": "^3.5.1",
     "start-server-and-test": "^2.0.10",
+    "stylelint": "^14.0.0",
     "typescript": "~5.7.3",
+    "typescript-eslint": "^7.1.1",
+    "vee-validate": "4.12.6",
     "vite": "^6.1.0",
     "vite-plugin-vue-devtools": "^7.7.2",
     "vitest": "^3.0.5",
-    "vue-tsc": "^2.2.2",
-    "stylelint": "^14.0.0",
-    "typescript-eslint": "^7.1.1",
-    "vee-validate": "4.12.6"
+    "vue-tsc": "^2.2.2"
   }
 }

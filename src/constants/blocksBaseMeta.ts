@@ -12,11 +12,11 @@ import type { Icon } from '@icon-park/vue-next/lib/runtime'
 import { nanoid } from 'nanoid'
 
 export const blocksBaseMetaList: { type: string; label: string; icon: Icon }[] = [
-  {
-    type: 'quote',
-    label: '引述',
-    icon: Quote,
-  },
+  // {
+  //   type: 'quote',
+  //   label: '引述',
+  //   icon: Quote,
+  // },
   {
     type: 'text',
     label: '笔记',
@@ -28,11 +28,11 @@ export const blocksBaseMetaList: { type: string; label: string; icon: Icon }[] =
     icon: TitleLevel,
   },
   { type: 'image', label: '图片', icon: ImageFiles },
-  {
-    type: 'view',
-    label: '视图',
-    icon: Table,
-  },
+  // {
+  //   type: 'view',
+  //   label: '视图',
+  //   icon: Table,
+  // },
   {
     type: 'chart',
     label: '图表',
@@ -57,16 +57,16 @@ export const blocksBaseMeta = Object.fromEntries(
 export const getBlocksDefaultData = (type: string): any => {
   const id = nanoid()
   switch (type) {
-    case 'quote':
-      return {
-        id,
-        type: 'quote',
-        label: '引述',
-        props: {
-          content: '引述文本 quote',
-          status: 'success',
-        },
-      }
+    // case 'quote':
+    //   return {
+    //     id,
+    //     type: 'quote',
+    //     label: '引述',
+    //     props: {
+    //       content: '引述文本 quote',
+    //       status: 'success',
+    //     },
+    //   }
     case 'text':
       return {
         id,
@@ -74,9 +74,7 @@ export const getBlocksDefaultData = (type: string): any => {
         label: '笔记',
         props: {
           content: `
-          <p>I’m <em>running</em> Tiptap <s>with</s> Vue.js. 🎉</p>
-          <p><strong>You</strong> can also teach the editor new things. For example to recognize hex colors and add a color</p>
-          <p> swatch on the fly: #FFF, #0D0D0D, #616161, #A975FF, #FB5151, #FD9170, #FFCB6B, #68CEF8, #80cbc4, #9DEF8F </p>
+          这是一个文本块
         `,
         },
       }
@@ -98,21 +96,21 @@ export const getBlocksDefaultData = (type: string): any => {
           url: 'https://images.pexels.com/photos/2577274/pexels-photo-2577274.jpeg?auto=compress&cs=tinysrgb&w=1600',
         },
       }
-    case 'view':
-      return {
-        id,
-        type: 'view',
-        label: '视图',
-        props: {
-          fields: {
-            id: {
-              type: 'text',
-            },
-          },
-          fieldProps: [],
-          data: [],
-        },
-      }
+    // case 'view':
+    //   return {
+    //     id,
+    //     type: 'view',
+    //     label: '视图',
+    //     props: {
+    //       fields: {
+    //         id: {
+    //           type: 'text',
+    //         },
+    //       },
+    //       fieldProps: [],
+    //       data: [],
+    //     },
+    //   }
     case 'chart':
       return {
         id,

@@ -2,7 +2,7 @@
 <!-- Text/Image/Chart -->
 
 <template>
-  <div><img :src="block.block.props.src" :alt="block.block.props.alt" /></div>
+  <div class="image"><img :src="block.block.props.src" :alt="block.block.props.alt" /></div>
 </template>
 
 <script setup lang="ts">
@@ -13,4 +13,14 @@ const block = defineProps<{
 }>()
 </script>
 
-<style></style>
+<style>
+.image {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+img {
+  width: 100%;
+}
+</style>

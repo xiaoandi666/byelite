@@ -6,6 +6,7 @@
         :block="editorStore.selectedBlock"
         @change="handleUpdateBlock"
       />
+      <SchemaExporter v-if="blockRightPanel" :currentBlockInfo="editorStore.selectedBlock" />
     </div>
   </div>
 </template>
@@ -21,6 +22,7 @@ import ImageSetting from './ImageSetting.vue'
 import ChartSetting from './ChartSetting.vue'
 import { computed } from 'vue'
 import type { Block } from '@/types/block'
+import SchemaExporter from './SchemaExporter.vue'
 const editorStore = useEditorStore()
 const { selectedBlock } = storeToRefs(editorStore)
 
@@ -48,7 +50,7 @@ const handleUpdateBlock = (block: Block) => {
 <style scoped>
 .right-panel-wrapper {
   display: flex;
-  width: 280px;
+  width: 300px;
   height: 100%;
   background-color: #f5f5f5;
   border-right: 1px solid #e8e8e8;

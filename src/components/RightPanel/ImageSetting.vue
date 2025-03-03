@@ -1,4 +1,5 @@
 <template>
+  <div class="title">图片</div>
   <input
     class="content"
     :value="props.block.props.src"
@@ -19,7 +20,15 @@ const handleChange = (src: string) => {
 </script>
 
 <style scoped>
+.title {
+  font-size: 1.5rem;
+  padding: 0.5rem;
+}
 .content {
-  width: 100%;
+  width: 96%;
+  border-radius: 5px;
+  height: 2rem;
+  margin-top: 5px;
+  margin-left: 2%;
 }
 </style>
