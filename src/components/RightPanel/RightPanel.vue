@@ -33,6 +33,8 @@ const blockRightPanel = computed(() => {
       return ImageSetting
     case 'chart':
       return ChartSetting
+    case 'heroTitle':
+      return TextSetting
     default:
       break
   }

@@ -14,6 +14,7 @@ import ChartBlock from './internal/ChartBlock.vue'
 import FallbackBlock from './internal/FallbackBlock.vue'
 import ImageBlock from './internal/ImageBlock.vue'
 import TextBlock from './internal/TextBlock.vue'
+import HeroTitleBlock from './internal/HeroTitleBlock.vue'
 import { useEditorStore } from '@/stores/editor'
 
 const props = defineProps<{
@@ -28,6 +29,16 @@ const blockMaterial = computed(() => {
     case 'image':
       return ImageBlock
     case 'text':
+      return TextBlock
+    case 'quote':
+      return TextBlock
+    case 'heroTitle':
+      return HeroTitleBlock
+    case 'view':
+      return TextBlock
+    case 'button':
+      return TextBlock
+    case 'form':
       return TextBlock
     default:
       return FallbackBlock

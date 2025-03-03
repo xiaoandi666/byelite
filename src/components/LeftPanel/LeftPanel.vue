@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { Lightning, Share } from '@icon-park/vue-next'
 import { ref } from 'vue'
-import { SmoothDndContainer } from './SmoothDnd/SmoothDndContainer'
-import { SmoothDndDraggable } from './SmoothDnd/SmoothDndDraggable'
+import { SmoothDndContainer } from '../SmoothDnd/SmoothDndContainer'
+import { SmoothDndDraggable } from '../SmoothDnd/SmoothDndDraggable'
+import OutlineDrawer from './OutlineDrawer.vue'
+import BlocksDrawer from './BlocksDrawer.vue'
 type Mode = 'outline' | 'blocks' | null
 const mode = ref<Mode>(null)
 const toggleMode = (newMode: Mode) => {
@@ -25,22 +27,10 @@ const toggleMode = (newMode: Mode) => {
       </div>
     </div>
     <Transition name="app-left-panel-drawer">
-      <div class="left-panel-content" v-show="mode">
-        {{ mode }}
-        <SmoothDndContainer
-          class="block-group"
-          behaviour="copy"
-          group-name="blocks"
-          tag="div"
-          @drag-start="(e, v) => console.log(e, v)"
-          @drag-leave="(e, v) => console.log(e, v)"
-          @drop="(e) => console.log('drop', e)"
-          :get-child-payload="(index: number) => index + 1"
-        >
-          <SmoothDndDraggable v-for="i in 10" :key="i">
-            <div class="block-item">{{ i }}</div>
-          </SmoothDndDraggable>
-        </SmoothDndContainer>
+      <div v-if="mode" class="app-left-panel-drawer">
+        <div class="app-left-panel-drawer-content">
+          <component v-if="mode" :is="mode === 'outline' ? OutlineDrawer : BlocksDrawer" />
+        </div>
       </div>
     </Transition>
   </div>

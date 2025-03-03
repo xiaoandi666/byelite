@@ -32,7 +32,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import LeftPanel from '@/components/LeftPanel.vue'
+import LeftPanel from '@/components/LeftPanel/LeftPanel.vue'
 import RightPanel from '@/components/RightPanel/RightPanel.vue'
 import { useDebugStore } from '@/stores/debug'
 import { SmoothDndContainer } from '@/components/SmoothDnd/SmoothDndContainer'

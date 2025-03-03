@@ -12,15 +12,7 @@ export const blocks: Block[] = [
       onEdit: () => {},
     },
   },
-  {
-    id: '2',
-    type: 'chart',
-    props: {},
-    actions: {
-      onFilter: () => {},
-      onSwitch: () => {},
-    },
-  },
+
   {
     id: '3',
     type: 'image',
