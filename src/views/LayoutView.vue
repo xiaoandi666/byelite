@@ -1,5 +1,5 @@
 <template>
-  <div class="layout-wrapper" :class="{ debug }">
+  <div class="layout-wrapper" :class="{ debug }" @click="handleGlobalClick($event)">
     <LeftPanel />
     <div class="layout-painter">
       <div class="layout-painter-head">
@@ -19,6 +19,13 @@
       >
         <SmoothDndDraggable v-for="block in blocks" :key="block.id">
           <div
+            class="block-toolbar-item"
+            v-if="activeBlockId === block.id"
+            @click="editorStore.deleteBlock(block)"
+          >
+            <delete />
+          </div>
+          <div
             :class="{ 'block-wrapper': true, debug: debug || activeBlockId === block.id }"
             :data-block-type="block.type"
             :data-block-id="block.id"
@@ -29,12 +36,13 @@
         </SmoothDndDraggable>
       </SmoothDndContainer>
     </div>
-    <div>
+    <div class="layout-right">
       <RightPanel />
     </div>
   </div>
 </template>
 <script setup lang="ts">
+import { Block, Delete } from '@icon-park/vue-next'
 import LeftPanel from '@/components/LeftPanel/LeftPanel.vue'
 import RightPanel from '@/components/RightPanel/RightPanel.vue'
 import { useDebugStore } from '@/stores/debug'
@@ -67,6 +75,17 @@ const applyDrag = <T extends any[]>(arr: T, dragResult: DropResult) => {
   }
 
   return result
+}
+const handleGlobalClick = (event: MouseEvent) => {
+  const target = event.target as HTMLElement
+  console.log('at', target)
+  const isBlock = target.closest('.layout-painter')
+  const isToolbar = target.closest('.layout-right')
+  const isRemove = target.closest('.remove-field')
+
+  if (!isBlock && !isToolbar && !isRemove) {
+    editorStore.activeBlockId = null
+  }
 }
 </script>
 <style>
@@ -120,12 +139,25 @@ const applyDrag = <T extends any[]>(arr: T, dragResult: DropResult) => {
   left: 10%;
 }
 .block-wrapper {
-  padding: 20px;
+  padding: 5px;
   border-radius: 4px;
   border: 2px dashed transparent;
-  margin: 10px 0;
+  margin-bottom: 10px;
 }
 .block-wrapper.debug {
   border: 2px dashed #e8e8e8;
+}
+
+.block-toolbar-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 4px;
+  color: white;
+  background: rgb(56, 55, 55);
+  cursor: pointer;
+  margin-left: 5px;
 }
 </style>

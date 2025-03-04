@@ -2,7 +2,7 @@
   <div class="schema-exporter-wrapper">
     <div class="schema-exporter-header">
       <span>导出 JSON</span>
-      <copy class="icon" @click="handleCopyText" />
+      <Copy class="icon" @click="handleCopyText" />
     </div>
     <vue-json-pretty
       class="json-pretty"
@@ -25,7 +25,7 @@ const props = defineProps<{
 
 const handleCopyText = () => {
   try {
-    const blockJsonString = JSON.stringify(props.currentBlockInfo)
+    const blockJsonString = JSON.stringify(props.currentBlockInfo, null, 2)
     copyText(blockJsonString)
   } catch (error) {
     console.error(error)
@@ -34,42 +34,64 @@ const handleCopyText = () => {
 </script>
 
 <style scoped>
+/* 外层容器 */
 .schema-exporter-wrapper {
-  background-color: rgb(248, 248, 248);
-  padding: 12px;
-  border-radius: 6px;
-  color: rgb(102, 102, 102);
-  margin: 10px;
+  background: #fff;
+  padding: 16px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  color: #333;
+  margin: 12px;
+  transition: all 0.3s ease-in-out;
 }
+
+/* 头部样式 */
 .schema-exporter-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 8px;
-  padding-bottom: 8px;
+  padding-bottom: 10px;
   margin-bottom: 12px;
-  border-bottom: 1px solid #e6e6e6;
-  color: #666;
-  font-size: 12px;
+  border-bottom: 2px solid #f0f0f0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #444;
 }
+
+/* 复制按钮 */
 .icon {
   cursor: pointer;
+  font-size: 18px;
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease;
 }
-.icon:hover {
-  color: #6592b7;
-}
-.json-pretty {
-  color: #666;
-  overflow-wrap: break-wrap;
-}
-</style>
 
-<style>
+.icon:hover {
+  color: #4078c0;
+  transform: scale(1.1);
+}
+
+/* JSON 代码块 */
+.json-pretty {
+  font-size: 14px;
+  background: #f8f9fa;
+  padding: 12px;
+  border-radius: 8px;
+  overflow-x: auto;
+  overflow-wrap: anywhere;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* JSON 节点优化 */
 .vjs-tree-node {
   border-radius: 6px;
+  transition: background-color 0.2s ease-in-out;
 }
+
 .vjs-tree-node:hover {
   background-color: #e6e6e6;
-  font-weight: 700;
+  font-weight: 600;
 }
 </style>

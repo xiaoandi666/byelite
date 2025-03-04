@@ -82,10 +82,12 @@ export type FormBlock = BaseBlock & {
   type: 'form'
   props: {
     fields: {
-      type: string
+      id: string
+      type: 'input' | 'select'
       label: string
       placeholder?: string
       required?: boolean
+      value?: string
     }[]
   }
 }

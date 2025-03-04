@@ -25,7 +25,6 @@ const props = defineProps<{
 const editorStore = useEditorStore()
 
 const blockMaterial = computed(() => {
-  console.log(props.block)
   switch (props.block.type) {
     case 'chart':
       return ChartBlock
@@ -43,7 +42,6 @@ const blockMaterial = computed(() => {
       return ButtonBlock
     case 'form':
       return FormBlock
-
     default:
       return FallbackBlock
   }

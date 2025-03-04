@@ -2,7 +2,7 @@
 <!-- Text/Image/Chart -->
 
 <template>
-  <div>{{ props.block.props.content }}</div>
+  <div class="text">{{ props.block.props.content }}</div>
 </template>
 
 <script setup lang="ts">
@@ -13,4 +13,8 @@ const props = defineProps<{
 }>()
 </script>
 
-<style></style>
+<style>
+.text {
+  font-size: 1.5rem;
+}
+</style>

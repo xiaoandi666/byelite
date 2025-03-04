@@ -22,6 +22,12 @@ export const useEditorStore = defineStore('editor', () => {
   const selectBlock = (block: Block) => {
     activeBlockId.value = block.id
   }
+  const deleteBlock = (block: Block) => {
+    const index = blocks.value.findIndex((b) => b.id === block.id)
+    if (index !== -1) {
+      blocks.value.splice(index, 1)
+    }
+  }
   //我们需要从active id 派生
   const selectedBlock = computed(() => {
     return blocks.value.find((block) => block.id === activeBlockId.value) || null
@@ -34,5 +40,6 @@ export const useEditorStore = defineStore('editor', () => {
     updateBlocks,
     selectBlock,
     updateBlock,
+    deleteBlock,
   }
 })

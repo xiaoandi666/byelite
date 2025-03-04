@@ -93,7 +93,7 @@ export const getBlocksDefaultData = (type: string): any => {
         type: 'image',
         label: '图片',
         props: {
-          url: 'https://images.pexels.com/photos/2577274/pexels-photo-2577274.jpeg?auto=compress&cs=tinysrgb&w=1600',
+          src: 'https://images.pexels.com/photos/2577274/pexels-photo-2577274.jpeg?auto=compress&cs=tinysrgb&w=1600',
         },
       }
     // case 'view':

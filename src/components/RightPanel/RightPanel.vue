@@ -6,7 +6,10 @@
         :block="editorStore.selectedBlock"
         @change="handleUpdateBlock"
       />
-      <SchemaExporter v-if="blockRightPanel" :currentBlockInfo="editorStore.selectedBlock" />
+      <SchemaExporter
+        v-if="editorStore.activeBlockId"
+        :currentBlockInfo="editorStore.selectedBlock"
+      />
     </div>
   </div>
 </template>
@@ -20,6 +23,9 @@ import TextSetting from './TextSetting.vue'
 import { blocks } from '@/mock/blocks'
 import ImageSetting from './ImageSetting.vue'
 import ChartSetting from './ChartSetting.vue'
+import TitleSetting from './TitleSetting.vue'
+import FormSetting from './FormSetting.vue'
+import ButtonSetting from './ButtonSetting.vue'
 import { computed } from 'vue'
 import type { Block } from '@/types/block'
 import SchemaExporter from './SchemaExporter.vue'
@@ -36,7 +42,11 @@ const blockRightPanel = computed(() => {
     case 'chart':
       return ChartSetting
     case 'heroTitle':
-      return TextSetting
+      return TitleSetting
+    case 'form':
+      return FormSetting
+    case 'button':
+      return ButtonSetting
     default:
       break
   }
@@ -48,12 +58,35 @@ const handleUpdateBlock = (block: Block) => {
 </script>
 
 <style scoped>
+.title {
+  font-size: 1.5rem;
+  padding: 0.5rem;
+}
 .right-panel-wrapper {
   display: flex;
   width: 300px;
   height: 100%;
   background-color: #f5f5f5;
   border-right: 1px solid #e8e8e8;
+  overflow: auto;
+}
+/* 滚动条样式 */
+.right-panel-wrapper::-webkit-scrollbar {
+  width: 10px; /* 滚动条的宽度 */
+}
+
+.right-panel-wrapper::-webkit-scrollbar-track {
+  background: #f1f1f1; /* 滚动条轨道的浅灰色背景 */
+  border-radius: 10px; /* 轨道圆角 */
+}
+
+.right-panel-wrapper::-webkit-scrollbar-thumb {
+  background: #888; /* 滚动条滑块的深灰色 */
+  border-radius: 10px; /* 滑块圆角 */
+}
+
+.right-panel-wrapper::-webkit-scrollbar-thumb:hover {
+  background: #555; /* 滑块悬停时的深灰色 */
 }
 .right-panel-left {
   width: 100%;
