@@ -1,23 +1,16 @@
 <template>
-  <div class="about">
-    <h1>DataSource</h1>
+  <div class="ds-wrapper">
+    <DataSourceLeftPanel />
+    <RouterView />
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-const count = ref(0)
-const increment = () => {
-  count.value++
-}
+import DataSourceLeftPanel from '@/components/DataSourceLeftPanel.vue'
 </script>
 <style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    color: red;
-  }
+.ds-wrapper {
+  display: flex;
+  height: 100%;
 }
 </style>

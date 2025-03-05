@@ -14,6 +14,18 @@ const router = createRouter({
       path: '/app/dataSource',
       name: 'dataSource',
       component: defineAsyncComponent(() => import('../views/DataSourceView.vue')),
+      children: [
+        {
+          path: ':id',
+          component: defineAsyncComponent(
+            () => import('../views/DataSourceContent/DataSourceContent.vue'),
+          ),
+        },
+        {
+          path: '',
+          redirect: '/app/dataSource/1',
+        },
+      ],
     },
     {
       path: '/app/layout',
@@ -24,6 +36,11 @@ const router = createRouter({
       path: '/app/actions',
       name: 'actions',
       component: defineAsyncComponent(() => import('../views/ActionsView.vue')),
+    },
+    {
+      path: '/test',
+      name: 'test',
+      component: defineAsyncComponent(() => import('@/views/tests/CanvasTableTwo.vue')),
     },
   ],
 })

@@ -6,7 +6,7 @@ import { SmoothDndDraggable } from '../SmoothDnd/SmoothDndDraggable'
 import OutlineDrawer from './OutlineDrawer.vue'
 import BlocksDrawer from './BlocksDrawer.vue'
 type Mode = 'outline' | 'blocks' | null
-const mode = ref<Mode>(null)
+const mode = ref<Mode>('outline')
 const toggleMode = (newMode: Mode) => {
   if (newMode === mode.value) {
     mode.value = null
