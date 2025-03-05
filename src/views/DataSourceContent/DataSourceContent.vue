@@ -22,25 +22,25 @@ interface Row {
 
 const data = reactive({
   columns: [
-    { title: 'ID', key: 'id', width: 100 },
-    { title: 'Name', key: 'name', width: 200 },
-    { title: 'Age', key: 'age', width: 100 },
+    { title: 'ID', key: 'id', width: 200 },
+    { title: 'Name', key: 'name', width: 400 },
+    { title: 'Age', key: 'age', width: 200 },
   ],
-  rows: Array.from({ length: 10000 }, (_, i) => ({
+  rows: Array.from({ length: 1000000 }, (_, i) => ({
     id: i + 1,
     name: `Person ${i + 1}`,
     age: 20 + (i % 50),
   })),
 })
 
-const rowHeight = 30
-const headerHeight = 30
-const visibleRows = 11
-const containerHeight = 330
+const rowHeight = 30 // 将行高设为30，减少每行占用的高度
+const headerHeight = 30 // 将表头高度设为30
+const visibleRows = 29 // 增加可见行数
+const containerHeight = 883 // 容器高度保持不变
 const devicePixelRatio = window.devicePixelRatio || 1
 
 const totalContentHeight = data.rows.length * rowHeight + headerHeight
-const spacerHeight = totalContentHeight > containerHeight ? totalContentHeight - containerHeight : 0
+const spacerHeight = totalContentHeight > containerHeight ? totalContentHeight : 0
 
 const selectedCell = reactive({ row: -1, column: -1 })
 
@@ -66,7 +66,7 @@ function adjustCanvasResolution() {
   const ctx = canvas.value.getContext('2d')
   if (!ctx) return
 
-  const canvasWidth = 400
+  const canvasWidth = 1400 // 宽度不变
   canvas.value.width = canvasWidth * devicePixelRatio
   canvas.value.height = containerHeight * devicePixelRatio
   canvas.value.style.width = `${canvasWidth}px`
@@ -118,30 +118,32 @@ function drawTable() {
   ctx.fillRect(0, 0, canvas.value.width, headerHeight)
   ctx.fillStyle = '#000'
   data.columns.forEach((col, index) => {
-    ctx.fillText(col.title, index * 100 + 10, headerHeight / 2)
+    ctx.fillText(col.title, index * 466 + 230, headerHeight / 2)
   })
 
   for (let i = startRow; i < endRow; i++) {
     if (i >= data.rows.length) break
-    const y = (i - startRow) * rowHeight + headerHeight - (scrollTop % rowHeight)
+    const y = (i - startRow) * rowHeight + headerHeight
     data.columns.forEach((col, j) => {
       const text = String(data.rows[i][col.key as keyof Row])
-      ctx.fillText(text, j * 100 + 10, y + rowHeight / 2)
+      ctx.fillText(text, j * 466 + 230, y + rowHeight / 2)
       if (selectedCell.row === i && selectedCell.column === j) {
         ctx.fillStyle = 'yellow'
         ctx.fillRect(j * 100, y, 100, rowHeight)
         ctx.fillStyle = '#000'
         ctx.fillText(text, j * 100 + 10, y + rowHeight / 2)
       }
-      ctx.strokeStyle = '#ccc'
-      ctx.beginPath()
-      ctx.moveTo(0, y + rowHeight)
-      ctx.lineTo(canvas.value.width, y + rowHeight)
-      ctx.stroke()
-      ctx.beginPath()
-      ctx.moveTo(j * 100, 0)
-      ctx.lineTo(j * 100, canvas.value.height)
-      ctx.stroke()
+      if (canvas.value) {
+        ctx.strokeStyle = '#ccc'
+        ctx.beginPath()
+        ctx.moveTo(0, y + rowHeight)
+        ctx.lineTo(canvas.value.width, y + rowHeight)
+        ctx.stroke()
+        ctx.beginPath()
+        ctx.moveTo(j * 466, 0)
+        ctx.lineTo(j * 466, canvas.value.height)
+        ctx.stroke()
+      }
     })
   }
 }
@@ -150,14 +152,15 @@ function drawTable() {
 <style scoped>
 .container {
   position: relative;
-  width: 420px;
+  width: 100%;
+  height: 100%;
 }
 
 .scroll-container {
   position: absolute;
   top: 0;
   width: 100%;
-  height: 330px;
+  height: 100%;
   overflow-y: auto;
 }
 

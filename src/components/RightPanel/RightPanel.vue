@@ -9,6 +9,7 @@
       <SchemaExporter
         v-if="editorStore.activeBlockId"
         :currentBlockInfo="editorStore.selectedBlock"
+        @updateBlock="handleUpdateBlock"
       />
     </div>
   </div>
@@ -29,11 +30,13 @@ import ButtonSetting from './ButtonSetting.vue'
 import { computed } from 'vue'
 import type { Block } from '@/types/block'
 import SchemaExporter from './SchemaExporter.vue'
+import QuoteSetting from './QuoteSetting.vue'
 const editorStore = useEditorStore()
 const { selectedBlock } = storeToRefs(editorStore)
 
 const blockRightPanel = computed(() => {
   if (!selectedBlock.value) return null
+
   switch (selectedBlock.value.type) {
     case 'text':
       return TextSetting
@@ -47,6 +50,8 @@ const blockRightPanel = computed(() => {
       return FormSetting
     case 'button':
       return ButtonSetting
+    case 'quote':
+      return QuoteSetting
     default:
       break
   }

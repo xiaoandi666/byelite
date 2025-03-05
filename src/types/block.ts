@@ -65,6 +65,7 @@ export type QuoteBlock = BaseBlock & {
   props: {
     content: string
     status: 'success' | 'warning' | 'error'
+    blocks?: string[]
   }
 }
 

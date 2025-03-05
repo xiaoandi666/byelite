@@ -12,14 +12,14 @@ import type { Icon } from '@icon-park/vue-next/lib/runtime'
 import { nanoid } from 'nanoid'
 
 export const blocksBaseMetaList: { type: string; label: string; icon: Icon }[] = [
-  // {
-  //   type: 'quote',
-  //   label: '引述',
-  //   icon: Quote,
-  // },
+  {
+    type: 'quote',
+    label: '引述',
+    icon: Quote,
+  },
   {
     type: 'text',
-    label: '笔记',
+    label: '文本',
     icon: Notes,
   },
   {
@@ -57,24 +57,24 @@ export const blocksBaseMeta = Object.fromEntries(
 export const getBlocksDefaultData = (type: string): any => {
   const id = nanoid()
   switch (type) {
-    // case 'quote':
-    //   return {
-    //     id,
-    //     type: 'quote',
-    //     label: '引述',
-    //     props: {
-    //       content: '引述文本 quote',
-    //       status: 'success',
-    //     },
-    //   }
+    case 'quote':
+      return {
+        id,
+        type: 'quote',
+        label: '引述',
+        props: {
+          content: '引述 quote',
+          status: 'success',
+        },
+      }
     case 'text':
       return {
         id,
         type: 'text',
-        label: '笔记',
+        label: '文本块',
         props: {
           content: `
-          这是一个文本块
+          文本块
         `,
         },
       }

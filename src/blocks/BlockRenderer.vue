@@ -17,6 +17,7 @@ import TextBlock from './internal/TextBlock.vue'
 import HeroTitleBlock from './internal/HeroTitleBlock.vue'
 import ButtonBlock from './external/ButtonBlock.vue'
 import FormBlock from '@/blocks/external/FormBlock.vue'
+import QuoteBlock from './external/QuoteBlock.vue'
 import { useEditorStore } from '@/stores/editor'
 
 const props = defineProps<{
@@ -32,8 +33,6 @@ const blockMaterial = computed(() => {
       return ImageBlock
     case 'text':
       return TextBlock
-    case 'quote':
-      return TextBlock
     case 'heroTitle':
       return HeroTitleBlock
     case 'view':
@@ -42,6 +41,8 @@ const blockMaterial = computed(() => {
       return ButtonBlock
     case 'form':
       return FormBlock
+    case 'quote':
+      return QuoteBlock
     default:
       return FallbackBlock
   }

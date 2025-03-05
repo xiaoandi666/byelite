@@ -27,18 +27,7 @@ export const blocks: Block[] = [
     id: '123',
     type: 'form',
     props: {
-      fields: [
-        {
-          label: 'Name',
-          id: '1',
-          type: 'input',
-        },
-        {
-          label: 'Email',
-          id: '2',
-          type: 'input',
-        },
-      ],
+      fields: [],
     },
   },
 ]

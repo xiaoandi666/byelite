@@ -10,6 +10,7 @@
       showLineNumber
       editable
       :data="currentBlockInfo"
+      @update:data="handleUpdateJson"
     />
   </div>
 </template>
@@ -30,6 +31,13 @@ const handleCopyText = () => {
   } catch (error) {
     console.error(error)
   }
+}
+const emit = defineEmits<{
+  (event: 'updateBlock', newBlock: any): void
+}>()
+// 监听 JSON 数据变化，并通知父组件更新 Block
+const handleUpdateJson = (newData: any) => {
+  emit('updateBlock', newData)
 }
 </script>
 
