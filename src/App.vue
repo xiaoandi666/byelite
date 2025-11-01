@@ -6,6 +6,8 @@ import AppNavigator from './components/AppNavigator.vue'
 <template>
   <AppNavigator msg="hello" />
   <RouterView />
+  test
+
 </template>
 
 <style scoped></style>
