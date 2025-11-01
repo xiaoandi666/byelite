@@ -6,7 +6,7 @@ import AppNavigator from './components/AppNavigator.vue'
 <template>
   <AppNavigator msg="hello" />
   <RouterView />
-  test
+  test2
 
 </template>
 
